@@ -1,16 +1,89 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hola Mundo!</h1>
-    <h2>Hola Mundo!</h2>
-    <h3>Hola Mundo!</h3>
-    <h4>Hola Mundo!</h4>
-    <h5>Hola Mundo!</h5>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #titulo-muy-especial{
+                margin: 1px;
+                margin-top: 2px;
+                margin-bottom: 3px;
+                margin-left: 4px;
+                margin-right: 5px;
+    
+                margin: 10px 20px 30px 40px;
+                margin-left: 1px;
+                margin-left: 10000px;
+                margin-left: 5px;
+    
+            }
+    
+            h1.h2.h3.h4.h5.h6{
+                margin: 10px;
+                padding: 10px, 20px, 30px, 40px;
+                padding-top: 1px;
+                padding-right: 2px;
+                padding-bottom: 3px;
+                padding-left: 4px;
+                padding: 10px;
+                border: green 1px solid;
+                border-width: 1px;
+                border-style: dashed;
+            }
+    
+            .lista-ordenada-mayusculas{
+                list-style-type: upper-alpha;
+            }
+            .lista-ordenada-romana{
+                list-style-type: upper-roman;
+            }
+    
+            li > a{
+                background-color: orange;
+            }
+            ul > li:hover{
+                background-color: brown;
+            }
+    
+            ul > li:first-child{
+                background-color: red;
+            }
+            ul > li:nth-child(4){
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="titulo-muy-especial"
+            style="color: white;color: black;">
+            My first heading
+        </h1>
+        <h2>My first heading</h2>
+        <h3>My first heading</h3>
+        <h4>My first heading</h4>
+        <h5>My first heading</h5>
     <h6 style="font-size: 40px">Hola Mundo!</h6>
+
+    <ul>
+        <li><a href="/00-servidor-web/index.html">Home</a></li>
+        <li><a href="/00-servidor-web/assets/a-tabla-anclas.html">Tablas y anclas</a></li>
+    </ul>
+    <ol>
+        <li>Lunes</li>
+        <li>Martes</li>
+        <li>Miércoles</li>
+    </ol>
+
+    <ol class="lista-ordenada-mayusculas">
+        <li>Lunes</li>
+            <ol class="lista-ordenada-romana">
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>    
+            </ol>
+        <li>Martes</li>
+        <li>Miercoles</li>
+    </ol>
 </body>
 </html>
