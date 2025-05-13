@@ -1,8 +1,52 @@
-console.log("Hola Mundo desde JavaScript");
-// var nombre = "Juan"; // NO VAMOS USAR VAR NUNCA
-let nombres = "Juan"; // let es un bloque de variable
-let nombreTS: string = "Juan"; // TypeScript
-console.log(typeof nombres, "nombres"); // string
-let numero = 10; // number
-let numeroTS: number = 10; // TypeScript
-console.log(typeof numero, "numero"); // number
+console.log("Hola Typescript");
+// var nombre = "algo"; // NO VAMOS A USAR VAR NUNCA
+let nombres = "Adrian";
+nombres = "A";
+nombres = 'C';
+// nombres = 1;
+let nombreTS: string = "";
+console.log(typeof nombres, "nombres");
+let numeros = 1;
+let numerosTS: number = 1;
+console.log(typeof numeros, "numeros");
+numeros = 1.1; // Decimales
+console.log(typeof numeros, "numeros decimales");
+let booleanos = true;
+let booleanosTS: boolean = false;
+booleanos = false;
+console.log(typeof booleanos, "booleanos");
+let nulos = null;
+let nulosTS: null = null;
+console.log(typeof nulos, "nulos");
+
+let arreglos = [];
+let arreglosTS: number[] = [];
+let arreglosTS2: Array<number> = [];
+console.log(typeof arreglos, "arreglos");
+
+let objetos = {};
+let objetosTS: object = {};
+console.log(typeof objetos, "objetos");
+
+let undefineds = undefined;
+let undefinedsTS: undefined = undefined;
+console.log(typeof undefineds, "undefineds");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
