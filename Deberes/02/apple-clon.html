@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f7;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar-custom {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 0;
+            min-height: 44px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar-custom .navbar-nav {
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .navbar-custom .nav-link {
+            color: #f5f5f7 !important;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 12px 16px !important;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-custom .nav-link:hover {
+            color: #ffffff !important;
+        }
+        
+        .apple-logo {
+            font-size: 16px;
+            color: #f5f5f7;
+            margin-right: 20px;
+        }
+        
+        /* Hero Section - MacBook Air */
+        .hero-section {
+            background: linear-gradient(135deg, #e8f4fd 0%, #d1e9f6 100%);
+            padding: 60px 0 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-title {
+            font-size: 56px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+            letter-spacing: -0.015em;
+        }
+        
+        .hero-subtitle {
+            font-size: 28px;
+            font-weight: 400;
+            color: #1d1d1f;
+            margin-bottom: 4px;
+        }
+        
+        .hero-description {
+            font-size: 28px;
+            font-weight: 400;
+            color: #1d1d1f;
+            margin-bottom: 30px;
+        }
+        
+        /* iPhone Section */
+        .iphone-section {
+            background-color: #000000;
+            color: white;
+            padding: 60px 0 80px 0;
+            text-align: center;
+        }
+        
+        .iphone-title {
+            font-size: 56px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.015em;
+        }
+        
+        .iphone-description {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        
+        /* iPad Section */
+        .ipad-section {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 60px 0 80px 0;
+            text-align: center;
+            color: #1d1d1f;
+        }
+        
+        /* Apple Watch Section */
+        .watch-section {
+            background-color: #f5f5f7;
+            padding: 60px 0 80px 0;
+            text-align: center;
+        }
+        
+        /* AirPods Section */
+        .airpods-section {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            color: white;
+            padding: 60px 0 80px 0;
+            text-align: center;
+        }
+        
+        /* Apple TV Section */
+        .appletv-section {
+            background-color: #000000;
+            color: white;
+            padding: 60px 0 80px 0;
+            text-align: center;
+        }
+        
+        /* Services Section */
+        .services-section {
+            background-color: #f5f5f7;
+            padding: 60px 0 80px 0;
+        }
+        
+        /* Buttons */
+        .btn-apple-blue {
+            background-color: #0071e3;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-apple-blue:hover {
+            background-color: #0077ed;
+            color: white;
+        }
+        
+        .btn-apple-outline {
+            background-color: transparent;
+            border: 1px solid #0071e3;
+            color: #0071e3;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-apple-outline:hover {
+            background-color: #0071e3;
+            color: white;
+        }
+        
+        .btn-apple-white {
+            background-color: white;
+            border: none;
+            color: #1d1d1f;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-apple-outline-white {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .intelligence-text {
+            font-size: 19px;
+            color: #0071e3;
+            margin-top: 20px;
+        }
+        
+        .intelligence-text-white {
+            font-size: 19px;
+            color: #06c;
+            margin-top: 20px;
+        }
+        
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            margin: 40px 0 20px 0;
+        }
+        
+        .navbar-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto;
+        }
+        
+        .navbar-icons i {
+            color: #f5f5f7;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        /* Grid Sections */
+        .grid-section {
+            padding: 12px 0;
+        }
+        
+        .grid-item {
+            background-color: white;
+            border-radius: 18px;
+            padding: 40px 20px;
+            margin-bottom: 12px;
+            text-align: center;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .grid-item-dark {
+            background-color: #1d1d1f;
+            color: white;
+        }
+        
+        .grid-item h3 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .grid-item p {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #f5f5f7;
+            padding: 40px 0;
+            border-top: 1px solid #d2d2d7;
+        }
+        
+        .footer-section {
+            margin-bottom: 30px;
+        }
+        
+        .footer-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .footer-link {
+            display: block;
+            color: #424245;
+            text-decoration: none;
+            font-size: 12px;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: #0071e3;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #d2d2d7;
+            padding-top: 20px;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #86868b;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title, .iphone-title {
+                font-size: 40px;
+            }
+            
+            .hero-subtitle, .hero-description, .iphone-description {
+                font-size: 21px;
+            }
+            
+            .navbar-custom .nav-link {
+                font-size: 11px;
+                padding: 12px 8px !important;
+            }
+            
+            .grid-item {
+                height: auto;
+                min-height: 400px;
+            }
+            
+            .grid-item h3 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center w-100">
+                <span class="apple-logo">
+                    <img src="https://www.apple.com/favicon.ico" alt="Apple Logo" style="width: 24px; height: 24px;">
+                </span>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mac</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">iPad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">iPhone</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Watch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Vision</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">AirPods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">TV & Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Entertainment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Support</a>
+                    </li>
+                </ul>
+                <div class="navbar-icons">
+                    <i class="bi bi-search"></i>
+                    <i class="bi bi-bag"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MacBook Air Hero Section -->
+    <section class="hero-section" style="margin-top: 44px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="hero-title">MacBook Air</h1>
+                    <p class="hero-subtitle">Sky blue color.</p>
+                    <p class="hero-description">Sky high performance with M4.</p>
+                    
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <a href="#" class="btn-apple-blue">Learn more</a>
+                        <a href="#" class="btn-apple-outline">Buy</a>
+                    </div>
+                    
+                    <div class="product-image">
+                        <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/macbook-air-og-202503?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1739216814915" alt="MacBook Air" class="img-fluid" style="max-width: 600px;">
+                    </div>
+                    
+                    <p class="intelligence-text">Built for Apple Intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- iPhone Section -->
+    <section class="iphone-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="iphone-title">iPhone</h2>
+                    <p class="iphone-description">Meet the iPhone 16 family.</p>
+                    
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <a href="#" class="btn-apple-blue">Learn more</a>
+                        <a href="#" class="btn-apple-outline-white">Shop iPhone</a>
+                    </div>
+                    
+                    <p class="intelligence-text-white">Built for Apple Intelligence.</p>
+                    
+                    <div class="product-image">
+                        <div class="row justify-content-center">
+                            <div class="col-md-3 col-6 mb-3">
+                                <img src="https://tienda.movistar.com.ec/media/catalog/product/cache/d730591e49ae7d4a1adb9133c8cae915/i/p/iphone-16-pro-negro-doble-movistar.png" alt="iPhone Natural" class="img-fluid">
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <img src="https://mobilestore.ec/wp-content/uploads/2024/09/iPhone-16-Ultramarine-Mobile-Store-Ecuador.png" alt="iPhone Blue" class="img-fluid">
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <img src="https://mobilestore.ec/wp-content/uploads/2024/09/iPhone-16-Pro-Black-Mobile-Store-Ecuador.png" alt="iPhone Black" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- iPad Section -->
+    <section class="ipad-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="hero-title">iPad</h2>
+                    <p class="hero-description">Touch, draw, and type on one magical device.</p>
+                    
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <a href="#" class="btn-apple-blue">Learn more</a>
+                        <a href="#" class="btn-apple-outline">Shop iPad</a>
+                    </div>
+                    
+                    <div class="product-image">
+                        <img src="https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/ipad-pro-11-inch-13-inch.png" alt="iPad" class="img-fluid" style="max-width: 500px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid Section -->
+    <section class="grid-section">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Apple Watch -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="grid-item">
+                        <div>
+                            <h3>Apple Watch</h3>
+                            <p>Series 10. Thinner. Lighter. Brighter.</p>
+                            <div>
+                                <a href="#" class="btn-apple-blue">Learn more</a>
+                                <a href="#" class="btn-apple-outline">Shop Watch</a>
+                            </div>
+                        </div>
+                        <div class="product-image">
+                            <img src="https://www.apple.com/la/apple-watch-se/images/meta/apple-watch-se__b7d1ybcfnx9e_og.png" alt="Apple Watch" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AirPods -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="grid-item grid-item-dark">
+                        <div>
+                            <h3>AirPods 4</h3>
+                            <p>Iconic. Now supersonic.</p>
+                            <div>
+                                <a href="#" class="btn-apple-white">Learn more</a>
+                                <a href="#" class="btn-apple-outline-white">Shop AirPods</a>
+                            </div>
+                        </div>
+                        <div class="product-image">
+                            <img src="https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/121204-airpods-4-anc.png" alt="AirPods" class="img-fluid" width="300px" height="300px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Apple TV 4K -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="grid-item grid-item-dark">
+                        <div>
+                            <h3>Apple TV 4K</h3>
+                            <p>The Apple experience. Cinematic in every sense.</p>
+                            <div>
+                                <a href="#" class="btn-apple-white">Learn more</a>
+                                <a href="#" class="btn-apple-outline-white">Shop Apple TV</a>
+                            </div>
+                        </div>
+                        <div class="product-image">
+                            <img src="https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111922_sp845-apple-tv-4k-2gen.png" alt="Apple TV" width="200px" height="300px" height="200px" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Apple Vision Pro -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="grid-item">
+                        <div>
+                            <h3>Apple Vision Pro</h3>
+                            <p>Welcome to spatial computing.</p>
+                            <div>
+                                <a href="#" class="btn-apple-blue">Learn more</a>
+                                <a href="#" class="btn-apple-outline">Shop Vision Pro</a>
+                            </div>
+                        </div>
+                        <div class="product-image">
+                            <img src="https://www.apple.com/newsroom/images/media/introducing-apple-vision-pro/Apple-WWDC23-Vision-Pro-glass-230605_big.jpg.large.jpg" alt="Vision Pro" class="img-fluid" width="350px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- HomePod -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="grid-item">
+                        <div>
+                            <h3>HomePod</h3>
+                            <p>Profound sound. Intelligent assistant.</p>
+                            <div>
+                                <a href="#" class="btn-apple-blue">Learn more</a>
+                                <a href="#" class="btn-apple-outline">Shop HomePod</a>
+                            </div>
+                        </div>
+                        <div class="product-image">
+                            <img src="https://i5.walmartimages.com/seo/Apple-HomePod-2nd-Generation-Midnight_13be9910-df07-4189-af70-109c47cab5b5.d03e94adb2427612412e11779717871d.png" alt="HomePod" class="img-fluid" width="275px" height="275px">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Accessories -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="grid-item grid-item-dark">
+                        <div>
+                            <h3>Accessories</h3>
+                            <p>Explore the full lineup of Apple accessories.</p>
+                            <div>
+                                <a href="#" class="btn-apple-white">Shop accessories</a>
+                            </div>
+                        </div>
+                        <div class="product-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW57S_b8ozrs5jqwwesdowVytEIjkNLRArCQ&s" alt="Accessories" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Shop and Learn</h6>
+                        <a href="#" class="footer-link">Store</a>
+                        <a href="#" class="footer-link">Mac</a>
+                        <a href="#" class="footer-link">iPad</a>
+                        <a href="#" class="footer-link">iPhone</a>
+                        <a href="#" class="footer-link">Watch</a>
+                        <a href="#" class="footer-link">Vision</a>
+                        <a href="#" class="footer-link">AirPods</a>
+                        <a href="#" class="footer-link">TV & Home</a>
+                        <a href="#" class="footer-link">AirTag</a>
+                        <a href="#" class="footer-link">Accessories</a>
+                        <a href="#" class="footer-link">Gift Cards</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Apple Wallet</h6>
+                        <a href="#" class="footer-link">Wallet</a>
+                        <a href="#" class="footer-link">Apple Card</a>
+                        <a href="#" class="footer-link">Apple Pay</a>
+                        <a href="#" class="footer-link">Apple Cash</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Account</h6>
+                        <a href="#" class="footer-link">Manage Your Apple ID</a>
+                        <a href="#" class="footer-link">Apple Store Account</a>
+                        <a href="#" class="footer-link">iCloud.com</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Entertainment</h6>
+                        <a href="#" class="footer-link">Apple One</a>
+                        <a href="#" class="footer-link">Apple TV+</a>
+                        <a href="#" class="footer-link">Apple Music</a>
+                        <a href="#" class="footer-link">Apple Arcade</a>
+                        <a href="#" class="footer-link">Apple Fitness+</a>
+                        <a href="#" class="footer-link">Apple News+</a>
+                        <a href="#" class="footer-link">Apple Podcasts</a>
+                        <a href="#" class="footer-link">Apple Books</a>
+                        <a href="#" class="footer-link">App Store</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Apple Store</h6>
+                        <a href="#" class="footer-link">Find a Store</a>
+                        <a href="#" class="footer-link">Genius Bar</a>
+                        <a href="#" class="footer-link">Today at Apple</a>
+                        <a href="#" class="footer-link">Apple Camp</a>
+                        <a href="#" class="footer-link">Apple Store App</a>
+                        <a href="#" class="footer-link">Certified Refurbished</a>
+                        <a href="#" class="footer-link">Apple Trade In</a>
+                        <a href="#" class="footer-link">Financing</a>
+                        <a href="#" class="footer-link">Carrier Deals at Apple</a>
+                        <a href="#" class="footer-link">Order Status</a>
+                        <a href="#" class="footer-link">Shopping Help</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">For Business</h6>
+                        <a href="#" class="footer-link">Apple and Business</a>
+                        <a href="#" class="footer-link">Shop for Business</a>
+                    </div>
+                    
+                    <div class="footer-section mt-4">
+                        <h6 class="footer-title">For Education</h6>
+                        <a href="#" class="footer-link">Apple and Education</a>
+                        <a href="#" class="footer-link">Shop for K-12</a>
+                        <a href="#" class="footer-link">Shop for College</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Copyright © 2024 Apple Inc. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="#" class="footer-link me-3">Privacy Policy</a>
+                        <a href="#" class="footer-link me-3">Terms of Use</a>
+                        <a href="#" class="footer-link me-3">Sales and Refunds</a>
+                        <a href="#" class="footer-link">Legal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

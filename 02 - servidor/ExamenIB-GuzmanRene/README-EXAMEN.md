@@ -1,4 +1,4 @@
-# 📘 Servicio REST /casa — Pruebas en Thunder Client
+# 📘 Servicio REST /casa
 
 ## 🧾 Descripción
 
