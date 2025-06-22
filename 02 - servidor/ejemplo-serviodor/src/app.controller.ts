@@ -1,25 +1,65 @@
-import { Controller, Get, Param, Query, Headers, Post, Body, HttpCode, NotFoundException } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Param,
+  Query,
+  Headers,
+  Body,
+  HttpCode,
+  NotFoundException,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  // Array de casas para simular una base de datos
+  private casas = [
+    { id: 1, nombre: 'Casa 1' },
+    { id: 2, nombre: 'Casa 2' },
+  ];
+
+  // Ruta base opcional
   @Get()
   getHello(): string {
     return this.appService.getHello();
   }
 
-  @Post('/ejemplo/:id') // /ejemplo/1?hola=mundo
+  // GET /casa → devuelve todas las casas o una sola si se pasa ?idCasa
+  @Get('/casa')
   @HttpCode(200)
-  ejemplo(
-    @Param('id') id, // Parametro de Ruta llamado 'id'
-    @Query('hola') hola, // Parametro de consulta llamado 'hola'
-    @Headers('escuela') escuela, // Cabecera con nombre 'escuela'
-    @Body('monto') monto, // Parametro de cuerpo llamado 'monto'
-  ): string {
-    return id + hola + ' Funcionando ' + escuela + monto;
-    // if(){} else{
-    // throw NotFoundException('No encontrado')  }
+  getCasa(
+    @Query('idCasa') idCasa?: string,
+    @Headers() headers?: any,
+  ) {
+    if (!idCasa) {
+      return this.casas;
+    }
+
+    const id = parseInt(idCasa);
+    const encontrada = this.casas.find((c) => c.id === id);
+
+    if (!encontrada) {
+      throw new NotFoundException('No se encuentra');
+    }
+
+    return [encontrada];
+  }
+
+  // POST /casa/:id → ejemplo adicional que utiliza body y headers
+  @Post('/casa/:id')
+  @HttpCode(200)
+  postCasaExample(
+    @Param('id') id: string,
+    @Body() body: any,
+    @Headers() headers: any,
+  ) {
+    return {
+      mensaje: `POST recibido para casa ${id}`,
+      data: body,
+      headers,
+    };
   }
 }
