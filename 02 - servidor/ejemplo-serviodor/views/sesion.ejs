@@ -1,51 +1,149 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #C2C0A6 0%, #A8A691 50%, #8E8B7A 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .session-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .session-container h1 {
+            color: #5A5847;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #C2C0A6;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            color: #5A5847;
+            font-weight: 600;
+        }
+        .btn-danger {
+            background: linear-gradient(135deg, #B85450 0%, #A04743 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease;
+        }
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(184, 84, 80, 0.4);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #C2C0A6 0%, #A8A691 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease;
+            color: #5A5847;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(194, 192, 166, 0.4);
+            background: linear-gradient(135deg, #A8A691 0%, #8E8B7A 100%);
+        }
+        .alert {
+            border-radius: 15px;
+            border: none;
+        }
+        .badge {
+            background-color: #C2C0A6 !important;
+            color: #5A5847;
+        }
+        .bg-success {
+            background-color: #A8A691 !important;
+            color: #5A5847;
+        }
+        .text-muted {
+            color: #6B6856 !important;
+        }
+    </style>
 </head>
-
-<% var arregloDeNumeros=[1,2,3,4,5]; %>
-
-    <body>
-        <h1>Datos Sesion</h1>
-        <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <% if (casa?.username) { %>
-                    <p><strong>Username: </strong>
-                        <%= casa.username %>
-                    </p>
-                    <p><strong>Nombre casa: </strong>
-                        <%= casa.nombre %>
-                    </p>
-                    <p><strong>Ejemplo iteracion:</strong></p>
-
-                    <ul>
-                        <% arregloDeNumeros.forEach(function(numero){ %>
-                            <li>
-                                <%= numero %>
-                            </li>
-                            <% }); %>
-                    </ul>
-                    <a href="/auth/logout">
-                        <button>
-                            Logout
-                        </button>
-                        </button>
-                        <% } else {%>
-                            <h2>NO tiene sesion!</h2>
-                            <% }%>
+<body>
+    <div class="session-container">
+        <h1>Datos de la Sesión</h1>
+        <% if (casa && casa.username) { %>
+            <div class="card mt-4 mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Bienvenido, <%= casa.username %></h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="card-text"><strong>Nombre de la casa:</strong></p>
+                            <span class="badge fs-6"><%= casa.nombre %></span>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="card-text"><strong>Usuario:</strong></p>
+                            <span class="badge bg-success fs-6"><%= casa.username %></span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-4"></div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <a href="/auth/casas" class="btn btn-primary me-md-2">Ver Lista de Casas</a>
+                <a href="/auth/logout" class="btn btn-danger">Cerrar Sesión</a>
+            </div>
+        <% } else { %>
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">Acceso Restringido</h4>
+                <p>No ha iniciado sesión en el sistema.</p>
+                <hr>
+                <p class="mb-0">Por favor, inicie sesión para continuar.</p>
+            </div>
+            <a href="/auth/login-vista" class="btn btn-primary">Ir al Login</a>
+        <% } %>
+        <div class="mt-4">
+            <small class="text-muted">Sistema de Gestión de Casas</small>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-            crossorigin="anonymous"></script>
-    </body>
-
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

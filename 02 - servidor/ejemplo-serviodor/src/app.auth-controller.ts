@@ -38,7 +38,7 @@ export class AuthController {
             mensaje: 'Usuario logeado exitosamente'
           };
         }
-        res.redirect('/auth/sesion');
+        res.redirect('/auth/casas');
       } else {
         res.redirect('/auth/login-vista?mensaje=Usuario y password no coinciden');
       }
@@ -78,5 +78,25 @@ export class AuthController {
     res.render('sesion', {
       casa,
     });
+  }
+
+  @Get('casas')
+  async casas(
+    @Res() res: any,
+    @Session() session: Record<string, any>
+  ) {
+    if (!session.user) {
+      return res.redirect('/auth/login-vista?mensaje=Inicie sesion');
+    }
+    try {
+      const casas = await this.casaService.obtenerTodos();
+      res.render('casas', {
+        casas: casas,
+        user: session.user
+      });
+    } catch (e) {
+      console.error('Error al buscar casas', e);
+      res.redirect('/auth/login-vista?mensaje=Error al cargar las casas');
+    }
   }
 }

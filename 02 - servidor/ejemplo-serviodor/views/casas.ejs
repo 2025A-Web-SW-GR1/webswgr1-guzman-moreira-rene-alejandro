@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Casas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #C2C0A6 0%, #A8A691 50%, #8E8B7A 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            margin-top: 2em;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .table img {
+            max-width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            background-color: #f8f9fa;
+            border: 2px solid #e9ecef;
+        }
+        .table img:hover {
+            transform: scale(1.1);
+        }
+        .img-thumbnail {
+            border: 2px solid #C2C0A6;
+            padding: 2px;
+        }
+        .badge {
+            font-size: 0.8rem;
+            padding: 8px 12px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2em;
+            padding-bottom: 1em;
+            border-bottom: 2px solid #C2C0A6;
+        }
+        .header h1 {
+            color: #5A5847;
+            font-weight: 700;
+            margin: 0;
+        }
+        .header .lead {
+            margin: 0;
+            color: #6B6856;
+        }
+        .btn-danger {
+            background: linear-gradient(135deg, #B85450 0%, #A04743 100%);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease;
+        }
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(184, 84, 80, 0.4);
+        }
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .table thead th {
+            background: linear-gradient(135deg, #5A5847 0%, #6B6856 100%);
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: white;
+        }
+        .table tbody tr:hover {
+            background-color: rgba(194, 192, 166, 0.1);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Lista de Casas</h1>
+            <p class="lead">Bienvenido, <strong><%= user.username %></strong>! <a href="/auth/logout" class="btn btn-danger btn-sm">Cerrar Sesión</a></p>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover shadow-sm">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Propietario</th>
+                        <th scope="col">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% casas.forEach(function(casa) { %>
+                        <tr>
+                            <td class="fw-bold text-primary"><%= casa.id %></td>
+                            <td>
+                                <% if (casa.imagenURL && casa.imagenURL.trim() !== '') { %>
+                                    <img src="<%= casa.imagenURL %>" 
+                                         alt="Imagen de la casa" 
+                                         class="img-thumbnail"
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
+                                         onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
+                                    <span class="badge bg-warning" style="display: none;">Error al cargar imagen</span>
+                                <% } else { %>
+                                    <span class="badge bg-secondary">Sin imagen</span>
+                                <% } %>
+                            </td>
+                            <td class="fw-semibold"><%= casa.nombre %></td>
+                            <td><%= casa.username %></td>
+                            <td class="text-success fw-bold">$<%= new Intl.NumberFormat('es-EC').format(casa.valor) %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
